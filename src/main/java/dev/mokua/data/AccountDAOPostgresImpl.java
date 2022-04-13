@@ -100,12 +100,14 @@ public class AccountDAOPostgresImpl implements AccountDAO{
 
         try {
             Connection conn = ConnectionUtil.createConnection();
-            String sql = "update account set first_name = ?, last_name = ?, checking_balance = ?, where account_id = ?";
+            String sql = "update account set first_name = ?, last_name = ?, " +
+                    "checking_balance= ?, user_name = ? pass_word = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, account.getFirstName());
             ps.setString(2, account.getLastName());
             ps.setDouble(3, account.getBalance());
-            ps.setInt(4, account.getAccountId());
+            ps.setString(4,account.getUserName());
+            ps.setString(5, account.getPassWord());
             ps.executeUpdate();
             return  account;
 

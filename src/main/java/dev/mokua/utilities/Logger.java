@@ -23,7 +23,7 @@ public class Logger {
         String logMessage = level.name() + "" + message + " " + new Date() + "\n";
 
         try {
-            Files.write(Paths.get("C:\\Users\\Brian\\BankingApplication\\applogs.log"),
+            Files.write(Paths.get("C:\\Users\\Brian\\BankingApplication\\BankApp.log"),
                     message.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
         } catch (IOException e) {
             e.printStackTrace();

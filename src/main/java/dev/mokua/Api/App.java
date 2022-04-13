@@ -24,7 +24,7 @@ public class App {
 
                 while (mainChoice <= 3 && run.equals(true)) {
 
-                    System.out.println("Welcome To Awesome Bank");
+                    System.out.println("Welcome To Brian's Bank");
                     System.out.println("Please select a number to proceed: ");
                     System.out.println("1. Create New User");
                     System.out.println("2. Existing User");
@@ -74,8 +74,10 @@ public class App {
                                     deposit = sc.nextDouble();
                                     if (deposit > 0.0) {
                                         balance += deposit;
-                                        App.accountService.updateAccount(account);
-                                        //account.setBalance(balance);
+                                        System.out.println("Your current balance is $" + balance);
+                                        account.setBalance(balance);
+                                        //accountService.updateAccount(account);
+
                                     } else {
                                         System.out.println("Enter a valid amount please!");
 
@@ -85,12 +87,14 @@ public class App {
 
                                     System.out.println("Enter the amount you want to withdraw:");
                                     withdraw = sc.nextDouble();
-                                    if (withdraw <= 0 || balance <= 0 ||((balance-withdraw)< 0)) {
+                                    if (withdraw <= 0.0 || balance <= 0.0 ||((balance-withdraw)< 0.0)) {
                                             System.out.println("Insufficient funds");
                                     }else{
+                                        balance = account.getBalance();
                                         balance -= withdraw;
-                                        App.accountService.updateAccount(account);
-                                        //account.setBalance(balance);
+                                        //App.accountService.updateAccount(account);
+                                        account.setBalance(balance);
+                                        System.out.println("The current balance is $" + balance);
                                     }
 
 
